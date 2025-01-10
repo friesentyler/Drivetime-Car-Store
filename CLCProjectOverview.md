@@ -1,6 +1,6 @@
 # CLC Project Overview
 
-## A detailed write-up describing what domain and products will be managed by the application.
+## 1. A detailed write-up describing what domain and products will be managed by the application.
 -The DriveTime app is a Java-based system for managing new and used car sales. This application will handle activities such as CRUD operations, managing used/new car sales, vehicle information, and general -reporting. The products will have certain variables that determine what they are.
 -Make: The car manufacturer or brand (e.g., Toyota, Ford, BMW).
 -Model: The specific model of the car (e.g., Corolla, Mustang, X5).
@@ -16,7 +16,7 @@
 
 
 
-## High-level Features and Functionality of Application
+## 2. High-level Features and Functionality of Application
 - The application will implement a user registration module and a login module.
 
 - The application will be designed using an N-Layer architecture, with distinct and separate presentation components, business services, and persistence services.
@@ -52,11 +52,27 @@
 - When a user attempts to purchase a car it will direct them to checkout which will get their credit information and determine a monthly payment that the user will pay. If they accept it will collect credit card details or bank details.
 - The user will be able to browse and sort cars by certain properties, when they find one they are interested in they can click on it to bring up more information about the car.
 
-## 3
+## 3. Sitemap
+This is the sitemap for our beautif and fantastic website in the making
+![Diagram of Sitemap](./diagrams/Sitemap.png)
 
 
-## 4
+## 4. Project Management and work distribution
 
-## 5
+- We will try to use a traditional SCRUM work cycle. 
+
+- We are going to meet on Wednessdays after class at 5:00 PM
+
+- During this meeting, we will essentially do spring planning for the next week (Sprint).
+
+- We will assign tickets to each team member for the next week
+
+- Team members will work on their tickets until Friday
+
+- We will conduct our Final meeting of the week after class on Friday and discuss the previous spring / finalize our work for submission.
+
+
+
+## 5. Risks of the Project
 
 There are several of different risks that can arise in the process of this project. For starters, we need to be aware of the merge conflicts that can arise when pushing and pulling all of our commits. With the correct protocols, we can avoid this issue. Another risk/issue that we can avoid is reaching a point where the code is unmaintainable. We can avoid this by making readable code, and following industry practices to make our lines of code as efficient and clean as possible. These precautions will not only ensure the safety and of our project, but our future projects in the work place as we instill proper programming etiquette and protocols.
