@@ -2,7 +2,7 @@
 
 ## 1
 
-## 2
+## High-level Features and Functionality of Application
 - The application will implement a user registration module and a login module.
 
 - The application will be designed using an N-Layer architecture, with distinct and separate presentation components, business services, and persistence services.
@@ -17,25 +17,26 @@
   - Spring Boot Embedded Tomcat (as a JAR)
   - MySQL (Relational Database)
 
-- The application presentation must be entirely written using Spring MVC compliant pages using Thymeleaf templates.
+- The application will perform data validation on all form data entry fields.
 
-- The application must perform data validation on all form data entry fields.
-- The application must support a responsive design using the Bootstrap framework.
-- The application must not have business logic or business rules implemented in Spring MVC views, models, or controllers.
-- The application must implement all CRUD methods on whatever business domain is being addressed (i.e., products, music, blogs, etc.).
-    - A page that lists all "products" as a tabular report.
-    - A page that allows a user to create a new "product."
-    - A page that allows a user to display the details of a "product."
-    - A page that allows a user to update an existing "product."
-    - A page that allows a user to delete an existing "product."
-- The application must use a relational database, such as MySQL or PostgreSQL. It should be noted that if you develop your application using Spring Data JDBC and use the CrudRepository, you could easily port your application over to use MongoDB, but this will not be possible until you finish Topic 5. You must receive permission from your instructor to use MongoDB.
-- The application must use the Spring JDBC or Spring Data JDBC to access the database.
-- The application must use Spring Beans to implement all business services and persistence services.
-- The application must use proper declarative Spring annotations within all components and use dependency injection (DI) for all models, controllers, services, and resources required by the application.
-- The application must be deployed using Spring Boot and use the embedded Tomcat (version 9.x or later).
-- The application must not be able to access secure pages (all but the root, registration, and login pages) without first logging into the application. The application will automatically redirect the user to the login page if they try to access a secure page without first logging in. The application must be secured using Spring Security form-based authentication and a database.
-- The APIs must not be anonymous, must be secured using Spring Security, and at a minimum, must use Basic HTTP Authentication using a database.
-- The application classes must be fully documented using JavaDoc format
+- The application will use the Bootstrap framework to support responsive design.
+- The application will implement all CRUD methods needed to sell cars 
+    - A page that lists all cars listings as a tabular report with the relevant data and images.
+    - A page that allows an admin to create a new car listing.
+    - A page that allows a user to display the details of a car listing. 
+    - A page that allows an admin to update an existing car listing.
+    - A page that allows an admin to delete an existing car listing.
+- The application will use a relational database, PostgreSQL. 
+- The application will use the Spring JDBC or Spring Data JDBC to access the database (we are not sure which to use yet, we will do more research and update this section when determined which we will use).
+- The application will use Spring Beans to implement all business services and persistence services.
+- The application will use proper declarative Spring annotations within all components and use dependency injection (DI) for all models, controllers, services, and resources required by the application.
+- The application will be deployed using Spring Boot and use the embedded Tomcat (version 9.x or later).
+- The application will not be able to access secure pages (all but the root, registration, and login pages) without first logging into the application. The application will automatically redirect the user to the login page if they try to access a secure page without first logging in. The application will be secured using Spring Security form-based authentication and a database.
+- The APIs will not be anonymous, it will be secured using Spring Security.
+- The application classes will be fully documented using JavaDoc format
+- There will be two types of users, admins, and standard users. Admins can create and edit listings whereas users can browse the listings and put in offers on vehicles.
+- When a user attempts to purchase a car it will direct them to checkout which will get their credit information and determine a monthly payment that the user will pay. If they accept it will collect credit card details or bank details.
+- The user will be able to browse and sort cars by certain properties, when they find one they are interested in they can click on it to bring up more information about the car.
 
 ## 3
 
