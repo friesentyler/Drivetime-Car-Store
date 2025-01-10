@@ -1,6 +1,20 @@
 # CLC Project Overview
 
-## 1
+## A detailed write-up describing what domain and products will be managed by the application.
+-The DriveTime app is a Java-based system for managing new and used car sales. This application will handle activities such as CRUD operations, managing used/new car sales, vehicle information, and general -reporting. The products will have certain variables that determine what they are.
+-Make: The car manufacturer or brand (e.g., Toyota, Ford, BMW).
+-Model: The specific model of the car (e.g., Corolla, Mustang, X5).
+-Year: The year the car was manufactured.
+-Color: The color of the car.
+-ID: (Vehicle Identification Number): A unique identifier for each vehicle.
+-Mileage: The total distance the car drives (important for used cars).
+-Price: The sale price of the car.
+-Condition: Whether the car is new or used.
+-Car Type: The type of car (e.g., sedan, SUV, truck, coupe).
+-Fuel Type: The type of fuel used (e.g., gasoline, electric, hybrid).
+-Warranty: Applicable only to new cars, including the duration and coverage details.
+
+
 
 ## High-level Features and Functionality of Application
 - The application will implement a user registration module and a login module.
