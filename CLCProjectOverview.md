@@ -53,7 +53,7 @@
 - The user will be able to browse and sort cars by certain properties, when they find one they are interested in they can click on it to bring up more information about the car.
 
 ## 3. Sitemap
-This is the sitemap for our beautif and fantastic website in the making
+This is the sitemap for our beautiful and fantastic website in the making
 ![Diagram of Sitemap](./diagrams/Sitemap.png)
 
 
@@ -61,7 +61,7 @@ This is the sitemap for our beautif and fantastic website in the making
 
 - We will try to use a traditional SCRUM work cycle. 
 
-- We are going to meet on Wednessdays after class at 5:00 PM
+- We are going to meet on Wednesdays after class at 5:00 PM
 
 - During this meeting, we will essentially do spring planning for the next week (Sprint).
 
