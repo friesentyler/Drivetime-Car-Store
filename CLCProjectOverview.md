@@ -55,8 +55,7 @@ The DriveTime app is a Java-based system for managing new and used car sales. Th
 - The user will be able to browse and sort cars by certain properties, when they find one they are interested in they can click on it to bring up more information about the car.
 
 ## 3. Sitemap
-This is the sitemap for our fantastic website in the making
-=======
+
 This is the sitemap for our beautiful and fantastic website in the making
 ![Diagram of Sitemap](./diagrams/Sitemap.png)
 
