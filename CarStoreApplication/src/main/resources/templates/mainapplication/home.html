@@ -2,9 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Home</title>
+    <!--<link rel="stylesheet" th:href="@{/css/layout.css}">-->
 </head>
-<body th:replace="common/layout :: layout">
+<body>
+<div style="display: flex; flex-direction: column; height: 100vh;">
+    <div th:insert="~{common/layout :: navigationbar}"></div>
+    <div th:insert="~{common/layout :: main-content(~{::content})}"  style="flex: 1; background-color: #CDC6A5">
+        <div th:fragment="content">
+            <h1>Welcome to the Home Page</h1>
+            <p>This is the home page content.</p>
+        </div>
+    </div>
+    <div th:insert="~{common/layout :: footer}"></div>
+</div>
 </body>
-<h1>Welcome to the Home Page</h1>
-<p>This is the home page content.</p>
 </html>

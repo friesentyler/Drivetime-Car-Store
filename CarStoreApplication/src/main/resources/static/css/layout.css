@@ -1,6 +1,24 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background-color: blue;
+.navbar-custom {
+    background-color: #3F7D20;
+}
+
+.nav-link {
+    font-size: 1.5rem;
+    padding: 20px;
+    font-weight: bold;
+    color: #2E4057;
+}
+
+.footer-color {
+    background-color: #2E4057;
+}
+
+.content-color {
+    background-color: #CDC6A5;
+}
+
+
+
+.container {
+    color: #F76C5E;
 }
