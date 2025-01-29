@@ -1,6 +1,10 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    background-color: blue;
+
+body {
+    background-image: url("/img/lightened-luxury-sedan-car-against-night-city-with-headlamps-rear-tail-lights-lit_1284-28804.jpg");
+    font-family: Verdana, serif;
 }
+
+h1 {
+    font-size: 1.5em;
+}
+
