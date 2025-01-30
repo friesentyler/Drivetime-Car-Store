@@ -3,14 +3,17 @@ package com.gcu.carstoreapplication.model;
 public class UserModel {
     // define the properties
     private int id;
+    private String username;
     private String firstName;
     private String lastName;
     private String password;
     private String email;
     private String phone;
-    
+
+    // default constructor
     public UserModel() {
         this.id = 0;
+        this.username = "";
         this.firstName = "";
         this.lastName = "";
         this.password = "";
@@ -19,8 +22,10 @@ public class UserModel {
     }
 
     // parameterized constructor
-    public UserModel(int id, String firstName, String lastName, String password, String email, String phone) {
+    public UserModel(int id, String username, String firstName, String lastName, String password, String email,
+            String phone) {
         this.id = id;
+        this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
@@ -35,6 +40,14 @@ public class UserModel {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getFirstName() {

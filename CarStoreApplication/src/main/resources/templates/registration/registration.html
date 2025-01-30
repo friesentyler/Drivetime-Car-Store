@@ -5,7 +5,6 @@
     <title>Registration</title>
   </head>
   <body>
-<<<<<<< HEAD
     <form
       th:action="@{/registration/doRegistration}"
       th:object="${userModel}"
@@ -13,7 +12,20 @@
     >
       <table>
         <tr>
-          <td>User Name:</td>
+          <td>Username:</td>
+          <td>
+            <input type="text" th:field="*{username}" />
+          </td>
+          <td>
+            <h5
+              style="color: red"
+              th:if="${#fields.hasErrors('username')}"
+              th:errors="*{username}"
+            ></h5>
+          </td>
+        </tr>
+        <tr>
+          <td>First Name:</td>
           <td>
             <input type="text" th:field="*{firstName}" />
           </td>
@@ -22,6 +34,45 @@
               style="color: red"
               th:if="${#fields.hasErrors('firstName')}"
               th:errors="*{firstName}"
+            ></h5>
+          </td>
+        </tr>
+        <tr>
+          <td>Last Name:</td>
+          <td>
+            <input type="text" th:field="*{lastName}" />
+          </td>
+          <td>
+            <h5
+              style="color: red"
+              th:if="${#fields.hasErrors('lastName')}"
+              th:errors="*{lastName}"
+            ></h5>
+          </td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>
+            <input type="email" th:field="*{email}" />
+          </td>
+          <td>
+            <h5
+              style="color: red"
+              th:if="${#fields.hasErrors('email')}"
+              th:errors="*{email}"
+            ></h5>
+          </td>
+        </tr>
+        <tr>
+          <td>Phone:</td>
+          <td>
+            <input type="tel" th:field="*{phone}" />
+          </td>
+          <td>
+            <h5
+              style="color: red"
+              th:if="${#fields.hasErrors('phone')}"
+              th:errors="*{phone}"
             ></h5>
           </td>
         </tr>
@@ -45,8 +96,5 @@
         </tr>
       </table>
     </form>
-=======
-	<h1>TEST</h1>
->>>>>>> ad0926c081af1f6609b911a4beaa35ae4afb96f1
   </body>
 </html>
