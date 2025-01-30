@@ -4,5 +4,45 @@
     <meta charset="UTF-8" />
     <title>Registration</title>
   </head>
-  <body></body>
+  <body>
+    <form
+      th:action="@{/registration/doRegistration}"
+      th:object="${userModel}"
+      method="post"
+    >
+      <table>
+        <tr>
+          <td>User Name:</td>
+          <td>
+            <input type="text" th:field="*{firstName}" />
+          </td>
+          <td>
+            <h5
+              style="color: red"
+              th:if="${#fields.hasErrors('firstName')}"
+              th:errors="*{firstName}"
+            ></h5>
+          </td>
+        </tr>
+        <tr>
+          <td>Password:</td>
+          <td>
+            <input type="password" th:field="*{password}" />
+          </td>
+          <td>
+            <h5
+              style="color: red"
+              th:if="${#fields.hasErrors('password')}"
+              th:errors="*{password}"
+            ></h5>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input type="submit" value="Submit" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
 </html>

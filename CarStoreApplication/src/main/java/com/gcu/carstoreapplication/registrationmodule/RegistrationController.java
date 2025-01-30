@@ -12,24 +12,25 @@ import com.gcu.carstoreapplication.model.UserModel;
 //import com.gcu.model.LoginModel;
 
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/registration")
 public class RegistrationController {
 
     @GetMapping("/")
     public String display(Model model) {
         // Display Login Form View
-        model.addAttribute("title", "Login Form");
-        model.addAttribute("loginModel", new UserModel());
-        return "login";
+        model.addAttribute("title", "Sign Up Today");
+        model.addAttribute("userModel", new UserModel());
+        return "registration";
     }
 
-    @PostMapping("/doLogin")
-    public String doLogin(UserModel loginModel, BindingResult bindingResult, Model model) {
+    @PostMapping("/doRegistration")
+    public String doRegistration(UserModel userModel, BindingResult bindingResult,
+            Model model) {
         // Print the form values
-        System.out.println(String.format("Form with Username of %s and Password of %s", 
-            loginModel.getFirstName(), loginModel.getPassword()));
+        System.out.println(String.format("Username: %s, Password: %s",
+                userModel.getFirstName(), userModel.getPassword()));
 
         // Navigate back to the login view
-        return "login";
+        return "registration-success";
     }
 }
