@@ -8,6 +8,15 @@ public class UserModel {
     private String password;
     private String email;
     private String phone;
+    
+    public UserModel() {
+        this.id = 0;
+        this.firstName = "";
+        this.lastName = "";
+        this.password = "";
+        this.email = "";
+        this.phone = "";
+    }
 
     // parameterized constructor
     public UserModel(int id, String firstName, String lastName, String password, String email, String phone) {
