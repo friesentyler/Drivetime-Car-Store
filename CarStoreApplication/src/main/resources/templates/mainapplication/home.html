@@ -4,7 +4,7 @@
     <title>Home</title>
     <link rel="stylesheet" th:href="@{/img/layout.css}">
 </head>
-<body style="background-image: url('/img/carAtNight.jpg');">
+<body style="background-image: url('/img/carAtNight.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; height: 100vh; width: 100vw;">
 
 <div style="display: flex; flex-direction: column; height: 100vh;">
     <div th:insert="~{common/layout :: navigationbar}"></div>
@@ -12,7 +12,6 @@
         <div th:fragment="content">
             <h1>Welcome to the Home Page</h1>
             <p>This is the home page content.</p>
-<!--            <img th:src="@{/img/carAtNight.jpg}" alt="car at night image" >-->
         </div>
     </div>
     <div th:insert="~{common/layout :: footer}"></div>

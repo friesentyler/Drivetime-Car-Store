@@ -1,50 +1,37 @@
-
 body {
     font-family: Verdana, serif;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+}
 
-    .navbar-custom {
-        background-color: #3F7D20;
-    }
+.navbar-custom {
+    background-color: #3F7D20;
+}
 
-    .nav-link {
-        font-size: 1.5rem;
-        padding: 20px;
-        font-weight: bold;
-        color: #2E4057;
-    }
+.nav-link {
+    font-size: 1.5rem;
+    padding: 20px;
+    font-weight: bold;
+    color: #2E4057;
+}
 
-    .footer-color {
-        background-color: #2E4057;
-    }
+.footer-color {
+    background-color: #2E4057;
+}
 
-    .content-color {
-        background-color: #CDC6A5;
-    }
+.content-color {
+    background-color: transparent;
+}
 
+.container {
+    color: #F76C5E;
+}
 
-    .container {
-        color: #F76C5E;
-    }
-
-    h1 {
-        font-size: 1.5em;
-        text-align: left;
-    }
-
-    p {
-        text-align: left;
-    }
-
-    .content-color {
-        /* Remove or set to transparent */
-        background-color: transparent;
-    }
-    body {
-        background-size: cover; /* Cover the entire area */
-        background-position: center; /* Center the image */
-        background-repeat: no-repeat; /* Prevent tiling */
-        min-height: 100vh; /* Full viewport height */
-        margin: 0; /* Remove default margin */
-        font-family: Verdana, serif;
-    }
+/* Fix text alignment */
+h1, p {
+    text-align: left; /* Aligns text to the right */
+    margin-left: 20px; /* Optional: Adds some space from the right edge */
 }
