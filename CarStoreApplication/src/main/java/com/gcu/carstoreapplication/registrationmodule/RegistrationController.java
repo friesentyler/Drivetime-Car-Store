@@ -12,17 +12,17 @@ import com.gcu.carstoreapplication.model.UserModel;
 //import com.gcu.model.LoginModel;
 
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/registration")
 public class RegistrationController {
 
-    @GetMapping("/")
+    @GetMapping
     public String display(Model model) {
         // Display Login Form View
         model.addAttribute("title", "Login Form");
-        model.addAttribute("loginModel", new UserModel());
-        return "login";
+        model.addAttribute("userModel", new UserModel());
+        return "/registration/registration";
     }
-
+/*
     @PostMapping("/doLogin")
     public String doLogin(UserModel loginModel, BindingResult bindingResult, Model model) {
         // Print the form values
@@ -32,4 +32,5 @@ public class RegistrationController {
         // Navigate back to the login view
         return "login";
     }
+    */
 }
