@@ -28,10 +28,13 @@ body {
 
 .container {
     color: #F76C5E;
+    padding-left: 0 !important;
 }
 
-/* Fix text alignment */
 h1, p {
-    text-align: left; /* Aligns text to the right */
-    margin-left: 20px; /* Optional: Adds some space from the right edge */
+    color: #F76C5E;
+    text-align: left !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
 }
+

@@ -4,6 +4,7 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/CarStoreApplication/src/main/resources/static/css" value="file://$PROJECT_DIR$/CarStoreApplication/src" />
+        <entry key="file://$PROJECT_DIR$/CarStoreApplication/src/main/resources/templates/common/layout.html" value="file://$PROJECT_DIR$/CarStoreApplication/src/main/resources/templates/common" />
         <entry key="file://$PROJECT_DIR$/CarStoreApplication/src/main/resources/templates/mainapplication/home.html" value="file://$PROJECT_DIR$/CarStoreApplication/src/main/resources/templates/mainapplication" />
       </map>
     </option>

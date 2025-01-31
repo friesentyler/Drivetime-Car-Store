@@ -30,8 +30,8 @@
 
 <main th:fragment="main-content(content)" class="content-color">
     <link rel="stylesheet" th:href="@{/img/layout.css}">
-    <div class="container">
-        <div class="content">
+    <div class="container-fluid">
+    <div class="content">
             <div th:replace="${content}"></div>
         </div>
     </div>
