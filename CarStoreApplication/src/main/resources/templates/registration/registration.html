@@ -6,95 +6,94 @@
   </head>
   <body>
     <form
-      th:action="@{/registration/doRegistration}"
-      th:object="${userModel}"
-      method="post"
-    >
-      <table>
-        <tr>
-          <td>Username:</td>
-          <td>
-            <input type="text" th:field="*{username}" />
-          </td>
-          <td>
-            <h5
-              style="color: red"
-              th:if="${#fields.hasErrors('username')}"
-              th:errors="*{username}"
-            ></h5>
-          </td>
-        </tr>
-        <tr>
-          <td>First Name:</td>
-          <td>
-            <input type="text" th:field="*{firstName}" />
-          </td>
-          <td>
-            <h5
-              style="color: red"
-              th:if="${#fields.hasErrors('firstName')}"
-              th:errors="*{firstName}"
-            ></h5>
-          </td>
-        </tr>
-        <tr>
-          <td>Last Name:</td>
-          <td>
-            <input type="text" th:field="*{lastName}" />
-          </td>
-          <td>
-            <h5
-              style="color: red"
-              th:if="${#fields.hasErrors('lastName')}"
-              th:errors="*{lastName}"
-            ></h5>
-          </td>
-        </tr>
-        <tr>
-          <td>Email:</td>
-          <td>
-            <input type="email" th:field="*{email}" />
-          </td>
-          <td>
-            <h5
-              style="color: red"
-              th:if="${#fields.hasErrors('email')}"
-              th:errors="*{email}"
-            ></h5>
-          </td>
-        </tr>
-        <tr>
-          <td>Phone:</td>
-          <td>
-            <input type="tel" th:field="*{phone}" />
-          </td>
-          <td>
-            <h5
-              style="color: red"
-              th:if="${#fields.hasErrors('phone')}"
-              th:errors="*{phone}"
-            ></h5>
-          </td>
-        </tr>
-        <tr>
-          <td>Password:</td>
-          <td>
-            <input type="password" th:field="*{password}" />
-          </td>
-          <td>
-            <h5
-              style="color: red"
-              th:if="${#fields.hasErrors('password')}"
-              th:errors="*{password}"
-            ></h5>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="2">
-            <input type="submit" value="Submit" />
-          </td>
-        </tr>
-      </table>
-    </form>
+    th:action="@{/registration/doLogin}"
+    th:object="${userModel}"
+    method="post"
+  >
+    <table>
+      <tr>
+        <td>Username:</td>
+        <td>
+          <input type="text" th:field="*{username}" />
+        </td>
+        <td>
+          <h5
+            style="color: red"
+            th:if="${#fields.hasErrors('username')}"
+            th:errors="*{username}"
+          ></h5>
+        </td>
+      </tr>
+      <tr>
+        <td>First Name:</td>
+        <td>
+          <input type="text" th:field="*{firstName}" />
+        </td>
+        <td>
+          <h5
+            style="color: red"
+            th:if="${#fields.hasErrors('firstName')}"
+            th:errors="*{firstName}"
+          ></h5>
+        </td>
+      </tr>
+      <tr>
+        <td>Last Name:</td>
+        <td>
+          <input type="text" th:field="*{lastName}" />
+        </td>
+        <td>
+          <h5
+            style="color: red"
+            th:if="${#fields.hasErrors('lastName')}"
+            th:errors="*{lastName}"
+          ></h5>
+        </td>
+      </tr>
+      <tr>
+        <td>Email:</td>
+        <td>
+          <input type="email" th:field="*{email}" />
+        </td>
+        <td>
+          <h5
+            style="color: red"
+            th:if="${#fields.hasErrors('email')}"
+            th:errors="*{email}"
+          ></h5>
+        </td>
+      </tr>
+      <tr>
+        <td>Phone:</td>
+        <td>
+          <input type="tel" th:field="*{phone}" />
+        </td>
+        <td>
+          <h5
+            style="color: red"
+            th:if="${#fields.hasErrors('phone')}"
+            th:errors="*{phone}"
+          ></h5>
+        </td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td>
+          <input type="password" th:field="*{password}" />
+        </td>
+        <td>
+          <h5
+            style="color: red"
+            th:if="${#fields.hasErrors('password')}"
+            th:errors="*{password}"
+          ></h5>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="submit" value="Submit" />
+        </td>
+      </tr>
+    </table>
   </body>
 </html>

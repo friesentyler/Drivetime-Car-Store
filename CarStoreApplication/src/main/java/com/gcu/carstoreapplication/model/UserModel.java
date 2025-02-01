@@ -1,13 +1,42 @@
 package com.gcu.carstoreapplication.model;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Email;
+
 public class UserModel {
     // define the properties
     private int id;
+
+    // username defined with error checking
+    @NotNull(message = "Username is a required field")
+    @Size(min = 1, max = 32, message = "User name must be between 1 and 32 characters")
     private String username;
+
+    // first name defined with error checking
+    @NotNull(message = "First name is a required field")
+    @Size(min = 1, max = 32, message = "First name must be between 1 and 32 characters")
     private String firstName;
+
+    // last name defined with error checking
+    @NotNull(message = "Last name is a required field")
+    @Size(min = 1, max = 32, message = "Last name must be between 1 and 32 characters")
     private String lastName;
+
+    // password defined with error checking
+    @NotNull(message = "Password is a required field")
+    @Size(min = 1, max = 32, message = "Password must be between 1 and 32 characters")
     private String password;
+
+    // email defined with error checking
+    @NotNull(message = "Email name is a required field")
+    @Size(min = 1, max = 32, message = "Email must be between 1 and 32 characters")
+    @Email(message = "Email must be a valid format")
     private String email;
+
+    // phone defined with error checking
+    @NotNull(message = "Phone is a required field")
+    @Size(min = 1, max = 32, message = "Phone name must be between 1 and 32 characters")
     private String phone;
 
     // default constructor
