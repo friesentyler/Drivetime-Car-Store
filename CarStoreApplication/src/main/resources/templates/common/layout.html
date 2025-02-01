@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Your Application</title>
+    <!-- Bootstrap CSS -->
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<header th:fragment="navigationbar">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/img/layout.css}">
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand nav-link" th:href="@{/}">DriveTime Car Store</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/login}">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/registration}">Register</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<main th:fragment="main-content(content)" class="content-color">
+    <link rel="stylesheet" th:href="@{/img/layout.css}">
+    <div class="container-fluid">
+    <div class="content">
+            <div th:replace="${content}"></div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer th:fragment="footer" class="footer-color text-center py-3">
+    <link rel="stylesheet" th:href="@{/img/layout.css}">
+    <div class="container ">
+        <h6>© 2025 Your Application</h6>
+    </div>
+</footer>
+
+
+</body>
+</html>

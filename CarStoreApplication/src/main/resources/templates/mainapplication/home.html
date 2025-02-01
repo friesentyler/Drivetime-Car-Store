@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/img/layout.css}">
+</head>
+<body style="background-image: url('/img/carAtNight.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; height: 100vh; width: 100vw; align-items: flex-start;">
+
+<div style="display: flex; flex-direction: column; height: 100vh;">
+    <div th:insert="~{common/layout :: navigationbar}"></div>
+    <div th:insert="~{common/layout :: main-content(~{::content})}" class="background-image" style="flex: 1;">
+        <div th:fragment="content">
+            <h1>Welcome to the Home Page</h1>
+            <p>Your one-stop shop for the best car deals, financing options, and hassle-free purchases.</p>
+        </div>
+    </div>
+    <div th:insert="~{common/layout :: footer}"></div>
+</div>
+</body>
+</html>
