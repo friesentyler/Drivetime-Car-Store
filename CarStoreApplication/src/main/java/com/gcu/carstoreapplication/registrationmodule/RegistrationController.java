@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.gcu.carstoreapplication.data.UserStore;
 import com.gcu.carstoreapplication.model.UserModel;
 
 import jakarta.validation.Valid;
@@ -19,6 +20,8 @@ import jakarta.validation.Valid;
 @Controller
 @RequestMapping("/registration")
 public class RegistrationController {
+	
+	private static UserStore users = new UserStore();
 
     @GetMapping
     public String display(Model model) {
@@ -28,7 +31,7 @@ public class RegistrationController {
         return "/registration/registration";
     }
     
-    @PostMapping("/doLogin")
+    @PostMapping("/register")
     public String doLogin(@Valid UserModel userModel, BindingResult bindingResult, Model model) {
         // Check for validation errors
         if (bindingResult.hasErrors()) {
@@ -36,12 +39,13 @@ public class RegistrationController {
             return "/registration/registration";
         }
         
-
-        // Display the Orders View
+        users.addUser(userModel);
+        
+        System.out.println(userModel.getFirstName());
         model.addAttribute("title", "My Orders");
-        model.addAttribute("userModel", userModel);
+        model.addAttribute("users", users.getAll());
         
         // THIS NEEDS TO BE CHANGED TO REDIRECT TO THE LOGIN PAGE INSTEAD
-        return "orders";
+        return "registration/allUsers";
     }
 }

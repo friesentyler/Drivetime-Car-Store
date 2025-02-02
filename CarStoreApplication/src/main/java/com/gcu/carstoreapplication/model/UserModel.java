@@ -8,7 +8,6 @@ public class UserModel {
     // define the properties
     private int id;
 
-    // username defined with error checking
     @NotNull(message = "Username is a required field")
     @Size(min = 1, max = 32, message = "User name must be between 1 and 32 characters")
     private String username;
