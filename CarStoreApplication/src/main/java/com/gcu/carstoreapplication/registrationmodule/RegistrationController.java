@@ -1,5 +1,8 @@
 package com.gcu.carstoreapplication.registrationmodule;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -8,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gcu.carstoreapplication.model.UserModel;
+
+import jakarta.validation.Valid;
 
 //import com.gcu.model.LoginModel;
 
@@ -22,15 +27,21 @@ public class RegistrationController {
         model.addAttribute("userModel", new UserModel());
         return "/registration/registration";
     }
-/*
+    
     @PostMapping("/doLogin")
-    public String doLogin(UserModel loginModel, BindingResult bindingResult, Model model) {
-        // Print the form values
-        System.out.println(String.format("Form with Username of %s and Password of %s", 
-            loginModel.getFirstName(), loginModel.getPassword()));
+    public String doLogin(@Valid UserModel userModel, BindingResult bindingResult, Model model) {
+        // Check for validation errors
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("title", "Registration Form");
+            return "/registration/registration";
+        }
+        
 
-        // Navigate back to the login view
-        return "login";
+        // Display the Orders View
+        model.addAttribute("title", "My Orders");
+        model.addAttribute("userModel", userModel);
+        
+        // THIS NEEDS TO BE CHANGED TO REDIRECT TO THE LOGIN PAGE INSTEAD
+        return "orders";
     }
-    */
 }
