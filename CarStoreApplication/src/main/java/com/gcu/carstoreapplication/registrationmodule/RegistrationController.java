@@ -41,11 +41,16 @@ public class RegistrationController {
         
         users.addUser(userModel);
         
-        System.out.println(userModel.getFirstName());
+        List<UserModel> userList = users.getAll();
+        for (UserModel user : userList) {
+        	System.out.println("***************************");
+            System.out.println(user.getFirstName());
+        }
+
         model.addAttribute("title", "My Orders");
         model.addAttribute("users", users.getAll());
         
         // THIS NEEDS TO BE CHANGED TO REDIRECT TO THE LOGIN PAGE INSTEAD
-        return "registration/allUsers";
+        return "registration/allusers";
     }
 }

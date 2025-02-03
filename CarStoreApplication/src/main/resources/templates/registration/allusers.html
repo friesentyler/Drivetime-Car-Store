@@ -1,29 +1,49 @@
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
 
-<body>
-	<div layout:fragment="content">
 
-		<table style="width:50%">
-		    <thead>
-		        <tr>
-		            <th style="text-align:center">ID</th>
-		            <th style="text-align:center">PW</th>
-		            <th style="text-align:center">UN</th>
-		            <th style="text-align:center">PHONE</th>
-		        </tr>
-		    </thead>
-		    <tbody>
-		        <tr th:if="${users.empty}">
-		            <td style="text-align:center" colspan="4"> No Users Yet </td>
-		        </tr>
-		        <tr th:each="user : ${users}">
-		            <td style="text-align:center"><h5 th:text="${user.id}">xy</h5></td>
-		            <td style="text-align:center"><h5 th:text="${user.password}">Product 1</h5></td>
-		            <td style="text-align:center"><h5 th:text="${user.username}">1.00</h5></td>
-		            <td style="text-align:center"><h5 th:text="${user.phonenumber}">1</h5></td>
-		        </tr>
-		    </tbody>
-		</table>
-		
-	</div>
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Home</title>
+    <link rel="stylesheet" th:href="@{/img/layout.css}">
+</head>
+<body style="background-image: url('/img/carAtNight.jpg'); background-size: cover; background-repeat: no-repeat; background-position: center; height: 100vh; width: 100vw; align-items: flex-start;">
+
+<div style="display: flex; flex-direction: column; height: 100vh;">
+    <div th:insert="~{common/layout :: navigationbar}"></div>
+    <div th:insert="~{common/layout :: main-content(~{::content})}" class="background-image" style="flex: 1;">
+        <div th:fragment="content">
+			<h1>TEST PAGE</h1>
+			<h6 style="color:orangered">Here, we show all registered users for testing purposes</h6>
+			<table style="width:100%">
+			    <thead>
+			        <tr>
+			            <th style="text-align:center">ID</th>
+			            <th style="text-align:center">Password</th>
+			            <th style="text-align:center">UserName</th>
+			            <th style="text-align:center">PhoneNumber</th>
+						<th style="text-align:center">FirstName</th>
+						<th style="text-align:center">LastName</th>
+			        </tr>
+			    </thead>
+			    <tbody>
+			        <tr th:if="${users.empty}">
+			            <td style="text-align:center" colspan="4"> No Users Yet </td>
+			        </tr>
+			        <tr th:each="user : ${users}">
+			            <td style="text-align:center"><h5 th:text="${user.id}">xy</h5></td>
+			            <td style="text-align:center"><h5 th:text="${user.password}">Product 1</h5></td>
+			            <td style="text-align:center"><h5 th:text="${user.username}">1.00</h5></td>
+			            <td style="text-align:center"><h5 th:text="${user.phone}">1</h5></td>
+						<td style="text-align:center"><h5 th:text="${user.firstName}">1</h5></td>
+						<td style="text-align:center"><h5 th:text="${user.lastName}">1</h5></td>
+			        </tr>
+			    </tbody>
+			</table>
+        </div>
+    </div>
+    <div th:insert="~{common/layout :: footer}"></div>
+</div>
 </body>
+</html>
