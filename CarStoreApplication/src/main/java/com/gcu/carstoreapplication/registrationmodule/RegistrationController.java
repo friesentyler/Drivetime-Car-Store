@@ -1,5 +1,8 @@
 package com.gcu.carstoreapplication.registrationmodule;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -7,13 +10,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.gcu.carstoreapplication.data.UserStore;
 import com.gcu.carstoreapplication.model.UserModel;
+
+import jakarta.validation.Valid;
 
 //import com.gcu.model.LoginModel;
 
 @Controller
 @RequestMapping("/registration")
 public class RegistrationController {
+	
+	private static UserStore users = new UserStore();
 
     @GetMapping
     public String display(Model model) {
@@ -22,15 +30,27 @@ public class RegistrationController {
         model.addAttribute("userModel", new UserModel());
         return "/registration/registration";
     }
-/*
-    @PostMapping("/doLogin")
-    public String doLogin(UserModel loginModel, BindingResult bindingResult, Model model) {
-        // Print the form values
-        System.out.println(String.format("Form with Username of %s and Password of %s", 
-            loginModel.getFirstName(), loginModel.getPassword()));
+    
+    @PostMapping("/register")
+    public String doLogin(@Valid UserModel userModel, BindingResult bindingResult, Model model) {
+        // Check for validation errors
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("title", "Registration Form");
+            return "/registration/registration";
+        }
+        
+        users.addUser(userModel);
+        
+        List<UserModel> userList = users.getAll();
+        for (UserModel user : userList) {
+        	System.out.println("***************************");
+            System.out.println(user.getFirstName());
+        }
 
-        // Navigate back to the login view
-        return "login";
+        model.addAttribute("title", "My Orders");
+        model.addAttribute("users", users.getAll());
+        
+        // THIS NEEDS TO BE CHANGED TO REDIRECT TO THE LOGIN PAGE INSTEAD
+        return "registration/allusers";
     }
-    */
 }
