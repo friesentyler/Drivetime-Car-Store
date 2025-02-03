@@ -1,6 +1,9 @@
 package com.gcu.carstoreapplication.loginmodule;
 
+import com.gcu.carstoreapplication.data.UserStore;
 import com.gcu.carstoreapplication.loginmodule.LoginModel;
+import com.gcu.carstoreapplication.model.UserModel;
+
 import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
 import org.springframework.core.io.ClassPathResource;
@@ -18,6 +21,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
+	
+	private static UserStore users = new UserStore();
+	
     @GetMapping
     public String display(Model model) {
         model.addAttribute("title", "Login Form");
@@ -27,15 +33,28 @@ public class LoginController {
     @PostMapping("/doLogin")
     public String doLogin(@Valid LoginModel loginModel, BindingResult bindingResult, Model model) {
 
-        if(bindingResult.hasErrors())
-        {
+        if (bindingResult.hasErrors()) {
             System.out.println("here");
             model.addAttribute("title", "Login Form");
             return "/login/login";
         }
-
-        System.out.println(String.format("Form submitted with Username: %s and Password: %s",
-                loginModel.getUsername(), loginModel.getPassword()));
-        return "login/products";
+        
+        List<UserModel> userList = users.getAll();
+        
+        UserModel account = null;
+        for (UserModel user : userList) {
+            if (user.getUsername().equals(loginModel.getUsername())) {
+                account = user;
+                break;
+            }
+        }
+        
+        if (account == null || !account.getPassword().equals(loginModel.getPassword())) {
+            return "login/failure"; // Invalid login
+        }
+        
+        model.addAttribute("title", "Success");
+        return "login/success"; 
     }
+
 }
