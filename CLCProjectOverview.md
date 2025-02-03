@@ -88,4 +88,10 @@ Rough draft of ER diagram for the database.
 
 ## 7. Class Diagrams
 
-class diagram place holder
+![Class Diagrams](./diagrams/ClassDiagrams.png)
+
+## 8. User Interface Diagrams
+
+![UI Diagrams Home Page](./diagrams/homePageUI.png)
+![UI Diagrams Login](./diagrams/loginUI.png)
+![UI Diagrams Registration](./diagrams/registrationUI.png)
