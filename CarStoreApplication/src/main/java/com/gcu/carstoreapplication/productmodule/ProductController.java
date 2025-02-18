@@ -21,8 +21,6 @@ public class ProductController {
 	
     @GetMapping
     public String display(Model model) {
-        //model.addAttribute("title", "Login Form");
-        //model.addAttribute("loginModel", new LoginModel());
         List<ProductModel> productList = products.getAll();
         model.addAttribute("title", "Product List");
         model.addAttribute("products", productList);
@@ -45,24 +43,6 @@ public class ProductController {
 
         products.addProduct(productModel);
         return "redirect:/product";
-        /*List<ProductModel> productList = products.getAll();
-        
-        ProductModel product = null;
-        for (ProductModel instance : productList) {
-            if (product.getUsername().equals(loginModel.getUsername())) {
-                product = instance;
-                break;
-            }
-        }
-        
-        if (account == null || !account.getPassword().equals(loginModel.getPassword())) {
-            return "login/failure"; // Invalid login
-        }
-        
-        model.addAttribute("title", "Success");
-
-         */
-        //return "login/success";
     }
 
 }
