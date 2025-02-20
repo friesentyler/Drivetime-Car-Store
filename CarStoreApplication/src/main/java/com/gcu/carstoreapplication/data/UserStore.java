@@ -3,7 +3,9 @@ package com.gcu.carstoreapplication.data;
 import java.util.ArrayList;
 
 import com.gcu.carstoreapplication.model.UserModel;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class UserStore {
 	
 	private static ArrayList<UserModel> users = new ArrayList<UserModel>();
