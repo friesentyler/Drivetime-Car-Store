@@ -2,11 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title th:text="${title}">Product List</title>
+  <link rel="stylesheet" th:href="@{/img/productpage.css}">
 </head>
-<body>
-<h1 th:text="${title}">Product List</h1>
+<body style="display: flex; flex-direction: column;">
+<div th:insert="~{common/layout :: navigationbar}"></div>
+<div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center;" th:insert="~{common/layout :: main-content(~{::content})}">
+<div th:fragment="content" style="display: flex; flex-direction: column;">
+<h1 style="padding-left: 30px;" th:text="${title}">Product List</h1>
 
-<table>
+<table style="flex-grow: 1;">
   <thead>
   <tr>
     <th>ID</th>
@@ -25,7 +29,11 @@
   </tbody>
 </table>
 
-<a href="/product/create">Create New Product</a>
-
+<a style="padding-left: 30px;" href="/product/create">Create New Product</a>
+<br/>
+<a style="padding-left: 30px;" th:href="@{/}">Back to Home</a>
+</div>
+</div>
+<div th:insert="~{common/layout :: footer}"></div>
 </body>
 </html>

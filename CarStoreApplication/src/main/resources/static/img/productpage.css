@@ -17,3 +17,7 @@ body {
     font-weight: bold;
     color: #2E4057;
 }
+
+th, td {
+    padding: 20px;
+}
