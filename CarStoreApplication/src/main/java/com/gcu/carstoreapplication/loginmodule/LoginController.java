@@ -4,8 +4,10 @@ import com.gcu.carstoreapplication.data.UserStore;
 import com.gcu.carstoreapplication.loginmodule.LoginModel;
 import com.gcu.carstoreapplication.model.UserModel;
 
+import com.gcu.carstoreapplication.service.UserService;
 import jakarta.annotation.Resource;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -21,8 +23,9 @@ import java.util.List;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-	
-	private static UserStore users = new UserStore();
+
+	@Autowired
+    private UserService userService;
 	
     @GetMapping
     public String display(Model model) {
@@ -34,27 +37,17 @@ public class LoginController {
     public String doLogin(@Valid LoginModel loginModel, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {
-            System.out.println("here");
             model.addAttribute("title", "Login Form");
             return "/login/login";
         }
-        
-        List<UserModel> userList = users.getAll();
-        
-        UserModel account = null;
-        for (UserModel user : userList) {
-            if (user.getUsername().equals(loginModel.getUsername())) {
-                account = user;
-                break;
-            }
-        }
-        
+
+        UserModel account = userService.getUserByUsername(loginModel.getUsername());
+
         if (account == null || !account.getPassword().equals(loginModel.getPassword())) {
             return "login/failure"; // Invalid login
         }
-        
-        model.addAttribute("title", "Success");
-        return "login/success"; 
-    }
 
+        model.addAttribute("title", "Success");
+        return "login/success";
+    }
 }
