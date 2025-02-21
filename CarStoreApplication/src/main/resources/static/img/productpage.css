@@ -1,0 +1,23 @@
+body {
+    font-family: Verdana, serif;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+    background-color: green;
+}
+.navbar-custom {
+    background-color: #3F7D20;
+}
+
+.nav-link {
+    font-size: 1.5rem;
+    padding: 20px;
+    font-weight: bold;
+    color: #2E4057;
+}
+
+th, td {
+    padding: 20px;
+}

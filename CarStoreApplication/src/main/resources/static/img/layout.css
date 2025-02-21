@@ -35,7 +35,7 @@ h1, p {
     color: #F76C5E;
     text-align: left !important;
     margin-left: 0 !important;
-    padding-left: 0 !important;
+    padding-left: 0;
 }
 h6 {
     text-align: center;
