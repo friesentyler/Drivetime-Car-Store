@@ -9,7 +9,9 @@ import java.util.List;
 
 @Service
 public class UserService implements UserServiceInterface {
-
+	
+	// THE SERVICE USES THE USER STORE STILL
+	// IN THE NEXT MILESTONE, WE WILL SWITCH TO THE DATABASE INSTEAD
     @Autowired
     private UserStore userStore;
     
