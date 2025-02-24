@@ -95,3 +95,8 @@ Rough draft of ER diagram for the database.
 ![UI Diagrams Home Page](./diagrams/homePageUI.png)
 ![UI Diagrams Login](./diagrams/loginUI.png)
 ![UI Diagrams Registration](./diagrams/registrationUI.png)
+
+## Youtube Links for Milestones
+
+### Milestone 3 video
+https://youtu.be/jtkcblgqk4o
