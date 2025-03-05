@@ -1,8 +1,11 @@
 package com.gcu.carstoreapplication.productmodule;
 
+import com.gcu.carstoreapplication.data.ProductDataService;
 import com.gcu.carstoreapplication.data.ProductStore;
 import com.gcu.carstoreapplication.model.ProductModel;
+import com.gcu.carstoreapplication.service.ProductService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,11 +20,12 @@ import java.util.List;
 @RequestMapping("/product")
 public class ProductController {
 	
-	private static ProductStore products = new ProductStore();
+    @Autowired
+    private ProductService products;
 	
     @GetMapping
     public String display(Model model) {
-        List<ProductModel> productList = products.getAll();
+        List<ProductModel> productList = products.getProducts();
         model.addAttribute("title", "Product List");
         model.addAttribute("products", productList);
         return "products/displayproducts";
@@ -40,7 +44,6 @@ public class ProductController {
             model.addAttribute("title", "Create Product");
             return "products/createproduct";
         }
-
         products.addProduct(productModel);
         return "redirect:/product";
     }
