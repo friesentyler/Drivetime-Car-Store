@@ -96,6 +96,67 @@ Rough draft of ER diagram for the database.
 ![UI Diagrams Login](./diagrams/loginUI.png)
 ![UI Diagrams Registration](./diagrams/registrationUI.png)
 
+## 9. Database Queries to Create the MySQL Database (with dummy data)
+
+CREATE DATABASE car_store;
+
+USE car_store;
+
+CREATE TABLE users (
+id INTEGER PRIMARY KEY,
+username VARCHAR(255) NOT NULL,
+password VARCHAR(255) NOT NULL,
+order_id INTEGER
+);
+
+CREATE TABLE products (
+id INTEGER PRIMARY KEY,
+make VARCHAR(255) NOT NULL,
+model VARCHAR(255) NOT NULL,
+price DOUBLE NOT NULL,
+product_Id INTEGER
+);
+
+CREATE TABLE shoppingcart (
+order_id INTEGER,
+product_id INTEGER,
+price DOUBLE,
+PRIMARY KEY (order_id, product_id), 
+FOREIGN KEY (order_id) REFERENCES users(id),
+FOREIGN KEY (product_id) REFERENCES products(id)
+);
+
+INSERT INTO users (id, username, password, order_id) VALUES
+(1, 'john_doe', 'password123', 1001),
+(2, 'jane_smith', 'mypassword', 1002),
+(3, 'mark_wilson', 'securepass', 1003),
+(4, 'linda_jones', 'password789', 1004),
+(5, 'alice_murray', 'supersecret', 1005);
+
+INSERT INTO products (id, make, model, price, product_Id) VALUES
+(1, 'Toyota', 'Corolla', 20000.00, 1),
+(2, 'Honda', 'Civic', 22000.00, 2),
+(3, 'Ford', 'Mustang', 30000.00, 3),
+(4, 'Chevrolet', 'Camaro', 32000.00, 4),
+(5, 'Tesla', 'Model 3', 40000.00, 5),
+(6, 'BMW', '3 Series', 45000.00, 6),
+(7, 'Audi', 'A4', 42000.00, 7),
+(8, 'Mercedes', 'C-Class', 47000.00, 8),
+(9, 'Nissan', 'Altima', 23000.00, 9),
+(10, 'Mazda', 'CX-5', 28000.00, 10);
+
+INSERT INTO shoppingcart (order_id, product_id, price) VALUES
+(1, 1, 20000.00),
+(1, 2, 22000.00),
+(2, 3, 30000.00),
+(2, 4, 32000.00),
+(3, 5, 40000.00),
+(3, 6, 45000.00),
+(4, 7, 42000.00),
+(4, 8, 47000.00),
+(5, 9, 23000.00),
+(5, 10, 28000.00);
+
 ## Youtube Links for Milestones
 
 ### Milestone 3 video

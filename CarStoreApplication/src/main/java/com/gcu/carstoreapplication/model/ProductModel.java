@@ -5,6 +5,18 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 public class ProductModel {
+
+    public ProductModel() {
+
+    }
+
+    public ProductModel(int id, String make, String model, float price) {
+        this.id = id;
+        this.make = make;
+        this.model = model;
+        this.price = price;
+    }
+
     // define the properties
     private int id;
 
