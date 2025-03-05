@@ -4,6 +4,7 @@ import com.gcu.carstoreapplication.data.ProductDataService;
 import com.gcu.carstoreapplication.data.ProductStore;
 import com.gcu.carstoreapplication.model.ProductModel;
 import com.gcu.carstoreapplication.service.ProductService;
+import com.gcu.carstoreapplication.service.ProductServiceInterface;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,7 @@ import java.util.List;
 public class ProductController {
 	
     @Autowired
-    private ProductService products;
+    private ProductServiceInterface products;
 	
     @GetMapping
     public String display(Model model) {

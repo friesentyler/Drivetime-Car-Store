@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface ProductServiceInterface {
     public List<ProductModel> getProducts();
+    public boolean addProduct(ProductModel productModel);
 }
