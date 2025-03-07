@@ -98,41 +98,50 @@ Rough draft of ER diagram for the database.
 
 ## 9. Database Queries to Create the MySQL Database (with dummy data)
 
+```
 CREATE DATABASE car_store;
 
 USE car_store;
 
+-- Updated users table with additional fields
 CREATE TABLE users (
-id INTEGER PRIMARY KEY,
-username VARCHAR(255) NOT NULL,
-password VARCHAR(255) NOT NULL,
-order_id INTEGER
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    userName VARCHAR(255) NOT NULL UNIQUE,
+    firstName VARCHAR(255) NOT NULL,
+    lastName VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    phone VARCHAR(20) NOT NULL
 );
 
+-- Products table remains unchanged
 CREATE TABLE products (
-id INTEGER PRIMARY KEY,
-make VARCHAR(255) NOT NULL,
-model VARCHAR(255) NOT NULL,
-price DOUBLE NOT NULL,
-product_Id INTEGER
+    id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    make VARCHAR(255) NOT NULL,
+    model VARCHAR(255) NOT NULL,
+    price DOUBLE NOT NULL,
+    product_Id INTEGER
 );
 
+-- Shopping cart table remains unchanged
 CREATE TABLE shoppingcart (
-order_id INTEGER,
-product_id INTEGER,
-price DOUBLE,
-PRIMARY KEY (order_id, product_id), 
-FOREIGN KEY (order_id) REFERENCES users(id),
-FOREIGN KEY (product_id) REFERENCES products(id)
+    order_id INTEGER,
+    product_id INTEGER,
+    price DOUBLE,
+    PRIMARY KEY (order_id, product_id),
+    FOREIGN KEY (order_id) REFERENCES users(id),
+    FOREIGN KEY (product_id) REFERENCES products(id)
 );
 
-INSERT INTO users (id, username, password, order_id) VALUES
-(1, 'john_doe', 'password123', 1001),
-(2, 'jane_smith', 'mypassword', 1002),
-(3, 'mark_wilson', 'securepass', 1003),
-(4, 'linda_jones', 'password789', 1004),
-(5, 'alice_murray', 'supersecret', 1005);
+-- Updated INSERT statements for users with new fields
+INSERT INTO users (id, userName, firstName, lastName, password, email, phone) VALUES
+(1, 'john_doe', 'John', 'Doe', 'password123', 'john.doe@example.com', '123-456-7890'),
+(2, 'jane_smith', 'Jane', 'Smith', 'mypassword', 'jane.smith@example.com', '987-654-3210'),
+(3, 'mark_wilson', 'Mark', 'Wilson', 'securepass', 'mark.wilson@example.com', '555-123-4567'),
+(4, 'linda_jones', 'Linda', 'Jones', 'password789', 'linda.jones@example.com', '777-888-9999'),
+(5, 'alice_murray', 'Alice', 'Murray', 'supersecret', 'alice.murray@example.com', '666-777-8888');
 
+-- Products table remains unchanged
 INSERT INTO products (id, make, model, price, product_Id) VALUES
 (1, 'Toyota', 'Corolla', 20000.00, 1),
 (2, 'Honda', 'Civic', 22000.00, 2),
@@ -145,6 +154,7 @@ INSERT INTO products (id, make, model, price, product_Id) VALUES
 (9, 'Nissan', 'Altima', 23000.00, 9),
 (10, 'Mazda', 'CX-5', 28000.00, 10);
 
+-- Shopping cart table remains unchanged
 INSERT INTO shoppingcart (order_id, product_id, price) VALUES
 (1, 1, 20000.00),
 (1, 2, 22000.00),
@@ -156,6 +166,10 @@ INSERT INTO shoppingcart (order_id, product_id, price) VALUES
 (4, 8, 47000.00),
 (5, 9, 23000.00),
 (5, 10, 28000.00);
+
+
+```
+
 
 ## Youtube Links for Milestones
 

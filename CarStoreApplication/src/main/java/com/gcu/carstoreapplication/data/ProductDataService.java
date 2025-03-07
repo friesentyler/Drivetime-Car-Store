@@ -43,10 +43,9 @@ public class ProductDataService implements DataAccessInterface<ProductModel> {
     }
 
     public boolean create(ProductModel product) {
-        String sql = "INSERT INTO products(id, make, model, price) VALUES(?, ?, ?, ?)";
+        String sql = "INSERT INTO products(make, model, price) VALUES(?, ?, ?)";
         try {
             int rows = jdbcTemplateObject.update(sql,
-                    product.getId(),
                     product.getMake(),
                     product.getModel(),
                     product.getPrice());
