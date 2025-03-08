@@ -77,5 +77,33 @@ public class UserDataService implements DataAccessInterface<UserModel>{
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
+	public UserModel getByUserName(String userName) {
+	    String sql = "SELECT * FROM users WHERE users.userName = ?";
+	    List<UserModel> users = new ArrayList<>();
+
+	    try {
+	        SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql, userName);
+	        while (srs.next()) {
+	            users.add(new UserModel(
+	                srs.getInt("id"),
+	                srs.getString("userName"),
+	                srs.getString("firstName"),
+	                srs.getString("lastName"),
+	                srs.getString("password"),
+	                srs.getString("email"),
+	                srs.getString("phone")
+	            ));
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return users.isEmpty() ? null : users.get(0); // Safely return the first user or null
+	}
 
 }
+
+
+
+
