@@ -26,15 +26,12 @@ public class UserService implements UserServiceInterface {
     
     @Override
     public UserModel getUserByUsername(String username) {
-        return userStore.getAll().stream()
-                .filter(user -> user.getUsername().equals(username))
-                .findFirst()
-                .orElse(null);
+        return service.getByUserName(username);
     }
     
     @Override
-    public void addUser(UserModel user) {
-        service.create(user);
+    public boolean addUser(UserModel user) {
+        return service.create(user);
     }
 
 }

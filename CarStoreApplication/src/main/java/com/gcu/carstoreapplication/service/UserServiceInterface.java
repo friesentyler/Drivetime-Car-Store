@@ -10,6 +10,6 @@ public interface UserServiceInterface {
 	
 	public UserModel getUserByUsername(String userName);
 	
-	public void addUser(UserModel user);
+	public boolean addUser(UserModel user);
 
 }
