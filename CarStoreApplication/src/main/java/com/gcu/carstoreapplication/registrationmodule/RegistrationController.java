@@ -43,13 +43,18 @@ public class RegistrationController {
             return "/registration/registration";
         }
         
-        userService.addUser(userModel);
+        boolean success = userService.addUser(userModel);
         
-        List<UserModel> userList = userService.getAllUsers();
+        if (success) {
+        	List<UserModel> userList = userService.getAllUsers();
 
-        model.addAttribute("title", "My Orders");
-        model.addAttribute("users", userList);
-        
-        return "registration/allusers";
+            model.addAttribute("title", "My Orders");
+            model.addAttribute("users", userList);
+            
+            return "registration/allusers";
+        }
+        else {
+        	return "registration/duplicate";
+        }
     }
 }
