@@ -1,5 +1,6 @@
 package com.gcu.carstoreapplication.service;
 
+import com.gcu.carstoreapplication.data.UserDataService;
 import com.gcu.carstoreapplication.data.UserStore;
 import com.gcu.carstoreapplication.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,9 @@ import java.util.List;
 @Service
 public class UserService implements UserServiceInterface {
 	
+	@Autowired
+	private UserDataService service;
+	
 	// THE SERVICE USES THE USER STORE STILL
 	// IN THE NEXT MILESTONE, WE WILL SWITCH TO THE DATABASE INSTEAD
     @Autowired
@@ -17,7 +21,7 @@ public class UserService implements UserServiceInterface {
     
     @Override
     public List<UserModel> getAllUsers() {
-        return userStore.getAll();
+        return service.findAll();
     }
     
     @Override
@@ -30,7 +34,7 @@ public class UserService implements UserServiceInterface {
     
     @Override
     public void addUser(UserModel user) {
-        userStore.addUser(user);
+        service.create(user);
     }
 
 }
