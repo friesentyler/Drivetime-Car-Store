@@ -175,3 +175,6 @@ INSERT INTO shoppingcart (order_id, product_id, price) VALUES
 
 ### Milestone 3 video
 https://youtu.be/jtkcblgqk4o
+
+### Milestone 4 video
+https://www.youtube.com/watch?v=vQBZI5pKnTQ
