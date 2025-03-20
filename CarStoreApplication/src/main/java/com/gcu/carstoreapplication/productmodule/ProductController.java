@@ -49,4 +49,21 @@ public class ProductController {
         return "redirect:/product";
     }
 
+    @GetMapping("/update")
+    public String showUpdateForm(Model model) {
+        model.addAttribute("title", "Update Product");
+        model.addAttribute("productModel", new ProductModel());
+        return "products/updateproduct";
+    }
+
+    @PostMapping("/update")
+    public String updateProduct(@Valid @ModelAttribute("productModel") ProductModel productModel, BindingResult bindingResult, Model model) {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("title", "Update Product");
+            return "products/updateproduct";
+        }
+        products.addProduct(productModel);
+        return "redirect:/product";
+    }
+
 }
