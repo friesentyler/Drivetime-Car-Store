@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -20,10 +21,10 @@ import java.util.List;
 @Controller
 @RequestMapping("/product")
 public class ProductController {
-	
+
     @Autowired
     private ProductServiceInterface products;
-	
+
     @GetMapping
     public String display(Model model) {
         List<ProductModel> productList = products.getProducts();
@@ -40,7 +41,8 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public String createProduct(@Valid @ModelAttribute("productModel") ProductModel productModel, BindingResult bindingResult, Model model) {
+    public String createProduct(@Valid @ModelAttribute("productModel") ProductModel productModel,
+            BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("title", "Create Product");
             return "products/createproduct";
@@ -49,4 +51,9 @@ public class ProductController {
         return "redirect:/product";
     }
 
+    @PostMapping("/delete/{id}")
+    public String deleteProduct(@PathVariable int id) {
+        products.deleteProduct(id);
+        return "redirect:/product";
+    }
 }

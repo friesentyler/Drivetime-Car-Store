@@ -60,8 +60,17 @@ public class ProductDataService implements DataAccessInterface<ProductModel> {
         return true;
     }
 
+    @Override
     public boolean delete(ProductModel product) {
-        return true;
+        String deleteCartSQL = "DELETE FROM shoppingcart WHERE product_id = ?";
+        String deleteProductSQL = "DELETE FROM products WHERE id = ?";
+        try {
+            jdbcTemplateObject.update(deleteCartSQL, product.getId());
+            int rows = jdbcTemplateObject.update(deleteProductSQL, product.getId());
+            return rows == 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
-
