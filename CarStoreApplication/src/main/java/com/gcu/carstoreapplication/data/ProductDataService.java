@@ -39,6 +39,20 @@ public class ProductDataService implements DataAccessInterface<ProductModel> {
 
     @Override
     public ProductModel findById(int id) {
+        String sql = "SELECT * FROM products WHERE id = ?";
+        try {
+            SqlRowSet srs = jdbcTemplateObject.queryForRowSet(sql, id);
+            if (srs.next()) {
+                return new ProductModel(
+                        srs.getInt("id"),
+                        srs.getString("make"),
+                        srs.getString("model"),
+                        srs.getFloat("price")
+                );
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -57,7 +71,18 @@ public class ProductDataService implements DataAccessInterface<ProductModel> {
     }
 
     public boolean update(ProductModel product) {
-        return true;
+        String sql = "UPDATE products SET make = ?, model = ?, price = ? WHERE id = ?";
+        try{
+            int rows = jdbcTemplateObject.update(sql,
+                    product.getMake(),
+                    product.getModel(),
+                    product.getPrice(),
+                    product.getId());
+                return rows == 1;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public boolean delete(ProductModel product) {

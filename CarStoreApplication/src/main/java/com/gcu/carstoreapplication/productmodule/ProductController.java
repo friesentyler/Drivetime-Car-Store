@@ -10,10 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -49,10 +46,14 @@ public class ProductController {
         return "redirect:/product";
     }
 
-    @GetMapping("/update")
-    public String showUpdateForm(Model model) {
+    @GetMapping("/update/{id}")
+    public String showUpdateForm(@PathVariable("id") int id, Model model) {
+        ProductModel product = products.getProductById(id);
+        if (product == null) {
+            return "redirect:/product?error=productNotFound";
+        }
         model.addAttribute("title", "Update Product");
-        model.addAttribute("productModel", new ProductModel());
+        model.addAttribute("productModel", product);
         return "products/updateproduct";
     }
 
@@ -62,7 +63,7 @@ public class ProductController {
             model.addAttribute("title", "Update Product");
             return "products/updateproduct";
         }
-        products.addProduct(productModel);
+        products.updateProduct(productModel);
         return "redirect:/product";
     }
 

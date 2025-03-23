@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 @Service
 public class ProductService implements ProductServiceInterface {
@@ -26,8 +25,22 @@ public class ProductService implements ProductServiceInterface {
         return updatedProducts;
     }
 
+    @Override
+    public ProductModel getProductById(int id)
+    {
+        return service.findById(id);
+    }
+
     public boolean addProduct(ProductModel product) {
         if (service.create(product)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean updateProduct(ProductModel product) {
+        if (service.update(product)) {
             return true;
         } else {
             return false;
