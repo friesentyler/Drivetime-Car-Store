@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-CarStoreApplication<CarStoreApplication>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.gcu.carstoreapplication.CarStoreApplication",
+      "projectName": "CarStoreApplication",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

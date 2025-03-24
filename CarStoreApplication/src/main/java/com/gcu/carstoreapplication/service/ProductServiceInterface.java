@@ -7,9 +7,13 @@ import java.util.List;
 public interface ProductServiceInterface {
     public List<ProductModel> getProducts();
 
+
     ProductModel getProductById(int id);
 
     public boolean updateProduct(ProductModel product);
 
     public boolean addProduct(ProductModel productModel);
+
+    public boolean deleteProduct(int id);
+
 }

@@ -47,9 +47,16 @@ public class ProductService implements ProductServiceInterface {
         }
     }
 
+    @Override
+    public boolean deleteProduct(int id) {
+        ProductModel product = new ProductModel(id, "", "", 0.0f);
+        return service.delete(product);
+    }
+
     public void init() {
         System.out.println("init ordersbusinessservice");
     }
+
     public void destroy() {
         System.out.println("destroy ordersbusinessservice");
     }

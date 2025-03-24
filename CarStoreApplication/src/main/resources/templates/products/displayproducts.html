@@ -50,15 +50,23 @@
     <td>
       <a th:href="@{/product/update/{id}(id=${product.id})}" class="fancy-button">Edit</a>
     </td>
+    <td>
+      <form th:action="@{/product/delete/{id}(id=${product.id})}" method="post">
+        <input type="hidden" name="_method" value="DELETE" />
+        <button type="submit">Delete</button>
+      </form>
+    </td>
   </tr>
   </tbody>
 </table>
 
-<a style="padding-left: 30px;" href="/product/create">Create New Product</a>
-<br/>
-<a style="padding-left: 30px;" th:href="@{/}">Back to Home</a>
-</div>
-</div>
-<div th:insert="~{common/layout :: footer}"></div>
-</body>
+        <a style="padding-left: 30px" href="/product/create"
+          >Create New Product</a
+        >
+        <br />
+        <a style="padding-left: 30px" th:href="@{/}">Back to Home</a>
+      </div>
+    </div>
+    <div th:insert="~{common/layout :: footer}"></div>
+  </body>
 </html>
