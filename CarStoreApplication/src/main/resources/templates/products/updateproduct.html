@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Product</title>
+    <link rel="stylesheet" th:href="@{/img/productpage.css}">
+</head >
+<body style="height: 100vh; display: flex; flex-direction: column;">
+<div th:insert="~{common/layout :: navigationbar}"></div>
+<div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center;" th:insert="~{common/layout :: main-content(~{::content})}">
+    <div th:fragment="content">
+        <h1>Update Product</h1>
+        <form th:action="@{/product/update}" th:object="${productModel}" method="post">
+            <input type="hidden" th:field="*{id}" />
+            <div th:if="${#fields.hasErrors('*')}">
+                <ul class="alert alert-danger">
+                    <li th:each="err : ${#fields.errors('*')}" th:text="${err.message}"></li>
+                </ul>
+            </div>
+
+            <label for="name">Make:</label><br>
+            <input type="text" id="name" th:field="*{make}" required><br>
+            <span th:if="${#fields.hasErrors('make')}" th:errors="*{make}" class="text-danger"></span><br><br>
+
+            <label for="description">Model:</label><br>
+            <textarea id="description" th:field="*{model}" required></textarea><br>
+            <span th:if="${#fields.hasErrors('model')}" th:errors="*{model}" class="text-danger"></span><br><br>
+
+            <label for="price">Price:</label><br>
+            <input type="number" id="price" th:field="*{price}" step="0.01" required><br>
+            <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="text-danger"></span><br><br>
+
+            <button type="submit">Update Product</button>
+        </form>
+
+        <a th:href="@{/}">Back to Home</a>
+    </div>
+</div>
+
+</body>
+</html>

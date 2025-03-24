@@ -3,6 +3,28 @@
 <head>
   <title th:text="${title}">Product List</title>
   <link rel="stylesheet" th:href="@{/img/productpage.css}">
+  <style>
+    .fancy-button {
+      display: inline-block;
+      padding: 5px 20px;
+      background-color: #3F7D20;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .fancy-button:hover {
+      background-color: #32641A;
+      color: white;
+    }
+
+    .fancy-button:active {
+      background-color: #285015;
+    }
+  </style>
 </head>
 <body style="display: flex; flex-direction: column;">
 <div th:insert="~{common/layout :: navigationbar}"></div>
@@ -25,6 +47,9 @@
     <td th:text="${product.make}">Car Make</td>
     <td th:text="${product.model}">Car Model</td>
     <td th:text="${product.price}">Car Price</td>
+    <td>
+      <a th:href="@{/product/update/{id}(id=${product.id})}" class="fancy-button">Edit</a>
+    </td>
   </tr>
   </tbody>
 </table>
