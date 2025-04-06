@@ -1,5 +1,26 @@
 # CLC Project Overview
 
+## Link to Code Repo
+https://github.com/friesentyler/Drivetime-Car-Store
+
+##
+
+## Youtube Links for Milestones
+
+### Milestone 3 video
+https://youtu.be/jtkcblgqk4o
+
+### Milestone 4 video
+https://www.youtube.com/watch?v=vQBZI5pKnTQ
+
+### Milestone 5 video
+https://youtu.be/qOv5MeU-b9Y
+
+### Milestone 6 video
+https://www.youtube.com/watch?v=WliEzqbAoHw
+
+##
+
 ## 1. A detailed write-up describing what domain and products will be managed by the application.
 
 The DriveTime app is a Java-based system for managing new and used car sales. This application will handle activities such as CRUD operations, managing used/new car sales, vehicle information, and general reporting. The products will have certain variables that determine what they are.
@@ -53,6 +74,8 @@ The DriveTime app is a Java-based system for managing new and used car sales. Th
 - There will be two types of users, admins, and standard users. Admins can create and edit listings whereas users can browse the listings and put in offers on vehicles.
 - When a user attempts to purchase a car it will direct them to checkout which will get their credit information and determine a monthly payment that the user will pay. If they accept it will collect credit card details or bank details.
 - The user will be able to browse and sort cars by certain properties, when they find one they are interested in they can click on it to bring up more information about the car.
+
+- The application will use Spring Security for login and user management. Users who are not logged in will only be able to access the login and registration pages. After a user logs in, they will have access to the entire site.
 
 ## 3. Sitemap
 
@@ -169,15 +192,3 @@ INSERT INTO shoppingcart (order_id, product_id, price) VALUES
 
 
 ```
-
-
-## Youtube Links for Milestones
-
-### Milestone 3 video
-https://youtu.be/jtkcblgqk4o
-
-### Milestone 4 video
-https://www.youtube.com/watch?v=vQBZI5pKnTQ
-
-### Milestone 5 video
-https://youtu.be/qOv5MeU-b9Y
