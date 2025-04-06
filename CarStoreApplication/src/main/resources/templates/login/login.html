@@ -30,12 +30,12 @@
         <table>
             <tr>
                 <td>User Name:</td>
-                <td><input type="text" th:field="*{username}"></td>
+                <td><input type="text" name="username" required></td>
                 <h5 style="color:red" th:if="${#fields.hasErrors('username')}">User Name Error</h5>
             </tr>
             <tr>
                 <td>Password:</td>
-                <td><input type="text" th:field="*{password}"></td>
+                <td><input type="password" name="password" required></td>
                 <h5 style="color:red" th:if="${#fields.hasErrors('password')}">Password Error</h5>
             </tr>
             <tr>
