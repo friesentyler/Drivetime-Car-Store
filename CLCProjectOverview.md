@@ -24,7 +24,7 @@ https://youtu.be/qOv5MeU-b9Y
 https://www.youtube.com/watch?v=WliEzqbAoHw
 
 ### Milestone 7 video
-xxxx
+https://www.youtube.com/watch?v=wHuCfFxs3zM
 
 ##
 
