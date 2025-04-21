@@ -1,5 +1,9 @@
 # CLC Project Overview
 
+## Link to Swagger UI Doc
+`Run the app, login, and visit this link to see the docs:`
+http://localhost:8080/swagger-ui/index.html
+
 ## Link to Code Repo
 https://github.com/friesentyler/Drivetime-Car-Store
 
@@ -18,6 +22,9 @@ https://youtu.be/qOv5MeU-b9Y
 
 ### Milestone 6 video
 https://www.youtube.com/watch?v=WliEzqbAoHw
+
+### Milestone 7 video
+https://www.youtube.com/watch?v=wHuCfFxs3zM
 
 ##
 

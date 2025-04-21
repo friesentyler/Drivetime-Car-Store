@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import com.gcu.carstoreapplication.security.MyUserDetailsService;
 
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -18,16 +19,27 @@ public class SecurityConfig {
     public SecurityConfig(MyUserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
+    
+    @Bean
+    public SecurityFilterChain apiSecurity(HttpSecurity http) throws Exception {
+        http
+            .securityMatcher("/api/**") // Secure only /api/**
+            .authorizeHttpRequests(auth -> auth
+                .anyRequest().authenticated()
+            )
+            .httpBasic();
+
+        return http.build();
+    }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain formLoginSecurity(HttpSecurity http) throws Exception {
         http
-        .authorizeHttpRequests(auth -> auth
-        	    .requestMatchers("/login", "/registration").permitAll()             // GET by default
-        	    .requestMatchers(HttpMethod.POST, "/registration/register").permitAll()     // ✅ allow form submission
-        	    .anyRequest().authenticated()
-        	)
-
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/login", "/registration").permitAll()
+                .requestMatchers(HttpMethod.POST, "/registration/register").permitAll()
+                .anyRequest().authenticated()
+            )
             .formLogin(form -> form
                 .loginPage("/login")
                 .loginProcessingUrl("/login/doLogin")
@@ -44,9 +56,10 @@ public class SecurityConfig {
         return http.build();
     }
 
+
     @Bean
     public PasswordEncoder passwordEncoder() {
         return org.springframework.security.crypto.password.NoOpPasswordEncoder.getInstance();
-        // For real apps, use: return new BCryptPasswordEncoder();
+        // For production: return new BCryptPasswordEncoder();
     }
 }
