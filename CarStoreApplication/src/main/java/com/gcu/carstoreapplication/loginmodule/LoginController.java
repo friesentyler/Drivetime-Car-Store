@@ -20,19 +20,41 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controller responsible for handling login functionality, including rendering the login form
+ * and processing login attempts.
+ */
 @Controller
 @RequestMapping("/login")
 public class LoginController {
 
-	@Autowired
+    /**
+     * Service for user-related operations.
+     */
+    @Autowired
     private UserService userService;
-	
+
+    /**
+     * Displays the login form.
+     *
+     * @param model the Spring {@link Model} used to pass attributes to the view
+     * @return the path to the login form view
+     */
     @GetMapping
     public String display(Model model) {
         model.addAttribute("title", "Login Form");
         model.addAttribute("loginModel", new LoginModel());
         return "/login/login";
     }
+
+    /**
+     * Processes the login form submission and checks for valid credentials.
+     *
+     * @param loginModel the {@link LoginModel} object containing the submitted login data
+     * @param bindingResult the result of validating the login form
+     * @param model the Spring {@link Model} used to pass attributes to the view
+     * @return the path to either a success or failure view based on login results
+     */
     @PostMapping("/doLogin")
     public String doLogin(@Valid LoginModel loginModel, BindingResult bindingResult, Model model) {
 
