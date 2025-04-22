@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * REST controller for handling product-related API endpoints.
+ * Provides methods for retrieving all products and a specific product by its ID.
+ */
 @RestController
 @RequestMapping("/api")
 public class ProductRestController {
@@ -17,13 +21,22 @@ public class ProductRestController {
     @Autowired
     private ProductDataService productService;
 
-    // Get all products
+    /**
+     * Retrieves a list of all products.
+     *
+     * @return a list of all product models
+     */
     @GetMapping("/products")
     public List<ProductModel> getAllProducts() {
         return productService.findAll();
     }
 
-    // Get a product by ID
+    /**
+     * Retrieves a product by its ID.
+     *
+     * @param id the ID of the product to retrieve
+     * @return the product model corresponding to the given ID
+     */
     @GetMapping("products/{id}")
     public ProductModel getProductById(@PathVariable int id) {
         return productService.findById(id);

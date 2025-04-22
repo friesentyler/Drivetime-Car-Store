@@ -26,6 +26,9 @@ https://www.youtube.com/watch?v=WliEzqbAoHw
 ### Milestone 7 video
 https://www.youtube.com/watch?v=wHuCfFxs3zM
 
+### Milestone 8 video
+https://youtu.be/bX76sjpYeGs
+
 ##
 
 ## 1. A detailed write-up describing what domain and products will be managed by the application.
